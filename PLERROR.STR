@@ -1,0 +1,992 @@
+~  PLERROR.STR        04  May  1985
+~
+~     This file contains all the error messages used by PROMlink.  Each error
+~ message is preceded by a '|', an optional number of dashes (-), the error
+~ number, a period and a code specifying which programmer and Pak the error
+~ message is valid on.  These error messages need not be in order provided 
+~ the '|' label as described above accompanies it.  The code describing the
+~ valid programmers and paks is described below:
+~
+~     Model 19      = 800
+~     Model 22      = 400
+~     Model 60	    =1000
+~     Model 120/121 = 200
+~     Model 29      = 100
+~     GangPak       =  10
+~     LogicPak      =   8
+~     MOSPak        =   4
+~     UniPak        =   2
+~     Gang Module   =   1
+~
+~     These numbers are additive and represented in hexadecimal.  The error 
+~ message itself is divided into two strings.  The first line of the error
+~ message is the string printed when the error occurs.  The rest of the 
+~ lines of the error message are printed out if the user requests more help
+~  for the error.
+~     As if not already obvious, lines beginning with the '~' character 
+~ are considered to be comments and are ignored by PROMlink.
+~ 
+|----------E18.900
+Illegal RAM page
+      You are using a programmer with extended RAM capabilities with
+      a Pak not equipped to handle the extra RAM.
+
+      Until you can get your Pak software updated, you must use less
+      of your programmer RAM for device-related operations with this Pak.
+|----------E20.1F1F
+Non-blank device
+      The programmer has determined that your device has bits in it
+      that are already programmed.
+
+      Replace the device or continue if this is acceptable.
+|----------E21.1F1F
+Illegal bit error
+      The programmer has determined that your device has programmed
+      bits in it which are not contained in the programmer RAM.
+
+      A programming operation with this device and RAM data will not
+      succeed.
+|----------E22.1D1F
+Programming error
+      The programmer was unable to program a bit in your device.
+
+      Discard the device or attempt to program it again.  If this error
+      persists, check the calibration of your programming electronics.
+|----------E22.200
+Failed EEPROM test
+      The device failed to erase or program completely during cyclic
+      testing.
+
+      Replace device if faulty.
+|----------E23.1D16
+First pass verify error
+      The device failed to compare with programmer RAM during a
+      parametric two pass verify operation.
+|----------E24.1D16
+Second pass verify error
+      The device failed to compare with programmer RAM during a
+      parametric two pass verify operation.
+|----------E25.408
+No socket adapter installed
+      A device related operation was attempted with no socket adapter
+      installed on the programmer.
+
+      Install or re-seat the correct socket adapter and try again.
+|----------E25.900
+No programming Pak
+      A device related operation was attempted with no programming Pak
+      installed in the programmer.
+
+      Install or re-seat the correct socket adapter and try again.
+|----------E25.200
+Bad Family/Pinout code
+      An incorrect device type or family/pinout code was entered.
+
+      Check your device type and programming electronics to be sure
+      they are compatible and try again.
+|----------E26.1400
+Wrong socket adapter
+      The wrong socket adapter is installed for the device you have
+      selected.
+
+      Install the correct socket adapter and try again.
+|----------E26.900
+Program Pak reset
+      The current device related operation was aborted due to a reset
+      condition in the program Pak.  This is usually caused by an over-
+      current condition due to a bad or poorly inserted device.
+
+      Replace the device and try again.
+|----------E26.600
+Device in wrong socket
+      A device is placed in a socket on the programmer which would cause
+      the result of the current operation to be ambiguous.
+
+      Remove the device from the socket and try again.
+|----------E27.F16
+Insufficient RAM
+      Current operation requires more RAM than is available in your
+      programmer at this time.
+
+      Check your operation boundaries.
+|----------E28.200
+Block Size too high
+      The block size you have set is either larger than your available
+      RAM or (for device related operations) larger than the device
+      type you have selected.
+|----------E29.200
+Verify error
+      The device failed to compare with programmer RAM during a verify
+      operation.  If this error was received while programming a device,
+      it is an indication that the device did not program correctly.
+|---------E30.40E
+Bad Family/Pinout code
+      An incorrect device type or family/pinout code was entered.
+
+      Check your device type and programming electronics to be sure
+      they are compatible and try again.
+|----------E30.200
+Odd load error
+      Loaded odd number of devices for 16-bit mode.
+
+      Load set with even number of devices.
+|----------E31.141F
+Over-current error
+      An over-current condition was detected by the programming
+      electronics.
+
+      This usually indicates a faulty or poorly installed device.
+|----------E31.200
+Device not tri-state
+      The device's data lines did not go into a high impedance state
+      when the part was deselected.
+
+      This usually indicates a bad or poorly inserted device.
+|----------E32.41F
+Backwards device
+      Likely, the device is inserted upside-down in the programmer
+      socket.
+
+      Check the device and try again.
+|----------E32.1000
+Backwards device/Vcc Overcurrent
+      (1)  Device plugged in backward; turn it around.
+      (2)  Vcc overcurrent, probably caused by a faulty device.
+
+      Check the device and try again.
+|----------E32.200
+Device not enabled
+      All data pins of the device in the programmer socket do not
+      drive adequately when the device is enabled.
+
+      This is usually caused by a bad or poorly inserted device.
+|----------E33.200
+Data line shorts
+      A short was detected on the data lines of the device in the
+      programmer socket.
+
+      This is usually caused by a faulty or improperly inserted device.
+|----------E34.141E
+Bad Family/Pinout code
+      An incorrect device type or family/pinout code was entered.
+
+      Check your device type and programming electronics to be sure
+      they are compatible and try again.
+|----------E34.001
+Bad characterizer
+      The operation aborted due to a faulty or poorly seated
+      characterizer.
+
+      Check the characterizer and try again.
+|----------E34.200
+Address line short
+      A short was detected on the address lines of the device in the
+      programmer socket.
+
+      This is usually caused by a faulty or improperly inserted device.
+|----------E35.017
+Faulty chip select
+      Data was present from the device while it was supposed to be
+      deselected.
+
+      This is usually caused by a faulty or improperly inserted device.
+|----------E35.400
+Device error
+      A program operation was attempted on either a faulty device or
+      an empty socket.
+
+      Check the device and try again.
+|----------E35.008
+Source equation translation error
+      An error exists in your source equations.
+
+      Check the equation buffer to find the error.
+|----------E35.200
+Device not tri-state
+      The device's data lines did not go into a high impedance state
+      when the part was deselected.
+
+      This usually indicates a faulty or poorly inserted device.
+|----------E36.008
+Begin RAM address not zero
+      The Begin RAM address cannot be set to anything except zero when
+      using this Pak.
+
+      Use the Set operations boundaries command to reset the Begin RAM
+      address back to zero and try the operation again.
+|----------E36.200
+Bad insertion
+      A device is either mis-registered, upside-down or otherwise poorly
+      inserted in the programmer socket.
+
+      Insert it correctly and try the operation again.
+|----------E37.006
+Socketing error
+      Current was being drawn from a socket that should have been empty
+      during the attempted operation.
+
+      Check to be sure that no devices are inserted in the wrong sockets,
+      and try again.
+|----------E37.008
+Invalid device-related operation
+      This is usually caused by an attempt to do a device-related
+      operation with the design adapter in place.
+|----------E37.200
+Byte count too low
+      An operation was attempted with a Byte count that could cause
+      damage to the current device type or an ambiguous result.
+
+      Usually, this is caused by trying to program fewer than ten bytes
+      in a 3 voltage part.
+|----------E38.141F
+Illegal operation attempted during calibration
+      An improper calibration step was requested or a device related
+      operation was attempted while the programmer was in calibration mode.
+|----------E38.200
+Over-current error
+      An over-current condition was detected by the programming
+      electronics.
+
+      This is usually due to a faulty or poorly installed device.
+|----------E39.1000
+Security fuse blown
+      An attempt was made to program a device with the security fuse blown.
+
+      Error occurs for MMI devices only.  Device can not be programmed
+      again if security fuse blown.
+|----------E3A.1000
+No functional data
+      A load or a test operation was attempted with test mode (function E6)
+      selected for structured vector and fingerprint test only, and no
+      vectors are loaded and the number of fingerprint cycles are zero.
+
+      Select an alternate test mode or resolve the undefined vectors or
+      cycle count.
+|----------E3B.1000
+Continuity error
+      A bad connection was detected between the programmer and the device.
+      This is usually caused by device misalignment or poor contact with
+      the handler socket.
+      Check the position of the device in the handler and the connections
+      between the programmer and the device.
+|----------E41.1F1F
+Framing error
+      The serial interface detected a start bit, but the stop bit was
+      incorrectly positioned.
+
+      This is usually caused by an improper baud rate or stop bit setting.
+|----------E42.1F1F
+Receiver over-run error
+      The serial interface received characters when the programmer was
+      unable to service them.
+
+      Be sure that the proper handshaking is being used or connected.
+|----------E43.900
+Framing and over-run errors
+      The serial interface received characters it was unable to service
+      with the stop bit incorrectly positioned.
+
+      Check the baud rates and stop bit selection.
+|----------E43.200
+Parity error
+      The serial interface has determined that a character was received
+      which had incorrect parity.
+
+      Check your connections and your parity setting and try again.
+|----------E44.200
+Unidentifiable interrupt
+      Processor IRQ line was pulled for no apparent reason.
+
+      Ignore this error.  If it persists, contact your local
+      service center.
+|----------E46.1F1F
+I/O timeout
+      No usable characters were received from the serial interface
+      for about 25 seconds or no characters could be transmitted due
+      to the state of the handshake lines for about 25 seconds.
+
+      Check all connections and try again.
+|----------E47.900
+Faulty ACIA chip
+      The programmer has determined that its serial interface chip is faulty.
+
+      Contact your local service center.
+|----------E47.200
+Port 1 FIFO over-flow
+      Characters destined to be sent out the main serial port over-
+      flowed the internal buffer due to lack of handshaking on the
+      second serial port and/or excessive baud rate on the second
+      serial port with respect to the main port.
+|----------E48.1F00
+I/O over-run
+      The serial port input buffer received too many characters after
+      the handshake line informed the sending device to stop.
+
+      Make sure the handshake lines are connected and operative.
+|----------E49.200
+Port 2 FIFO over-flow
+      Characters destined to be sent out the second serial port over-
+      flowed the internal buffer due to lack of handshaking on the
+      main serial port and/or excessive baud rate on the main serial
+      port with respect to the second port.
+|----------E50.900
+I/O error
+      Because of address errors or an invalid format, no data was
+      transferred during input.
+
+      Check that your translator format is correct.
+|----------E51.200
+I/O format error
+      The programmer received an invalid character in the address field.
+
+      Check your connections and data source and try again.
+|----------E52.1F1F
+I/O verify fail
+      The data from the serial port did not match the data in programmer
+      RAM.
+|----------E53.200
+I/O format error
+      The number of input records did not equal the record count
+      (in MOS Technology format).
+
+      Check your connections and data source and try again.
+|----------E54.200
+I/O format error
+      The record type was in error (Intel Intellec 8/MDS format).
+      Check your connections and data source and try again.
+|----------E55.200
+I/O format error
+      The sumcheck received by the programmer does not match with
+      the programmer's calculated sumcheck.
+
+      Check your connections and data source and try again.
+|----------E56.200
+I/O format error
+      The combination of the I/O offset address and the address of
+      the incoming formatted data would cause data to be stored at
+      an address where there is no programmer RAM.
+|----------E57.200
+I/O format error
+      A non-hexadecimal character was received where a hexadecimal
+      character was expected.
+
+      Check your connections and data source and try again.
+|----------E58.200
+I/O format error
+      The address check was in error (Signetics Twin and Tektronix
+      Hexadecimal formats).
+
+      Check your connections and data source and try again.
+|----------E61.B00
+No RAM
+      The programmer has determined that it has no working data RAM installed.
+
+      Replace faulty RAM or contact your local service center.
+|----------E62.B00
+RAM bit error
+      The programmer has detected a fault in its data RAM.
+
+      Replace faulty RAM or contact your local service center.
+|----------E63.1F18
+RAM write error
+      Data stored to programmer RAM did not read back correctly.
+
+      Try operation again.  If error persists, contact your local
+      service center.
+|----------E64.1F1F
+RAM data error
+      The programmer detected a spurious change in its data RAM.
+
+      Data should be reloaded into RAM.  If this error persists,
+      contact your local service center.
+|----------E65.910
+Pak firmware error
+      The programmer has determined that the software in the program
+      Pak installed in the programmer is faulty.
+
+      Contact your local service center.
+|----------E65.200
+RAM bit error
+      The programmer has detected a fault in its data RAM in the
+      second pass of its RAM test.
+
+      Replace faulty RAM or contact your local service center.
+|----------E66.D00
+Unidentifiable interrupt
+      Processor IRQ line was pulled for no apparent reason.
+
+      Ignore this error.  If it persists, contact your local service center.
+|----------E66.200
+Faulty ACIA chip
+      The programmer has determined that its main serial interface
+      chip is faulty.
+
+      Contact your local service center.
+|----------E67.1D00
+Received non-hex character in CRC command
+      The programmer received an incorrect command for its remote
+      control.
+
+      Check your connections to this computer.
+|----------E67.200
+Data comparator failure
+      The programmer has determined that its data comparators are
+      unreliable or faulty.
+
+      If this error persists, contact your local service center.
+|----------E68.D00
+Data is locked
+      Operation was aborted because it attempted to change RAM data
+      while it is locked.
+
+      Unlock the RAM before trying the operation again.
+|----------E68.200
+Timer chip failure
+      The programmer has determined that its timer chip is marginal
+      or faulty.
+
+      Contact your local service center.
+|----------E69.200
+Data latch failure
+      The programmer has determined that its data latch circuitry is
+      unreliable or faulty.
+
+      If this error persists, contact your local service center.
+|----------E70.006
+Faulty bit supply
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E70.008
+Vcc DAC error
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E71.006
+Faulty CS supply
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E71.008
+Bit switch #1 DAC error
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E71.200
+Pin 1 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E72.006
+Faulty Vcc supply
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E72.008
+Bit switch #2 DAC error
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E72.200
+Pin 2 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E73.008
+CE DAC error
+      The programmer has determined that one of the Pak power supplies
+      is faulty.
+
+      Contact your local service center.
+|----------E73.200
+Pin 20 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E74.1008
+Logic fingerprint test verify error
+      The Logic fingerprint of the device in the programmer socket did
+      not match the fingerprint in programmer RAM.
+|----------E74.200
+Pin 21 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E75.1008
+Structured test verify error
+      The device in the programmer socket failed to respond as specified
+      in the structured test vectors in programmer RAM.
+|----------E75.200
+Pin 22 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E76.008
+Self test error
+      The programming Pak has detected an error in its own operation.
+
+      Contact your local service center.
+|----------E76.200
+Pin 23 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E77.1008
+Security fuse programming error
+      Indicates that either the current device type has no security fuse
+      or that the device's security fuse could not be blown.
+|----------E77.200
+Pin 26 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E78.008
+No fuse verify option set
+      The fuse verify option must be set for either 1 or 0 in order to
+      program the device.
+|----------E78.200
+Pin 27 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E79.1008
+Preload not implemented for this device
+      Preload not implemented for this device.
+|----------E79.200
+Pin 28 driver error
+      The programmer aborted the current operation due to an inaccurate
+      voltage level on one of the device pins.  This can be caused by a
+      faulty device or a poorly calibrated or faulty power supply in the
+      programmer.
+|----------E81.1D08
+Parity error
+      The serial interface has determined that a character was received
+      which had incorrect parity.
+
+      Check your connections and your parity setting and try again.
+|----------E81.200
+No silicon ID found
+      The programmer could not find a silicon identifier mark in
+      the device.
+|----------E82.1D08
+Sumcheck error
+      The sumcheck received by the programmer does not match with the
+      programmer's calculated sumcheck.
+
+      Check your connections and data source and try again.
+|----------E82.200
+Invalid ID found
+      The silicon Identifier in the device does not match with the
+      device type selected.
+
+      Replace the device or change the device type.
+|----------E83.200
+Silicon ID warning
+      This is a warning that the programming algorithm you have
+      selected is not approved for programming this device.
+|----------E84.1F1F
+Invalid or not enough data
+      The programmer received invalid data or not enough data
+      characters during an I/O transfer.  (Refer to your programmer
+      manual for more details)
+
+      Check connections, I/O format and source data and try the
+      operation again.
+|----------E90.B00
+Invalid format selected
+      The number of the I/O format you have selected is not valid
+      for this programmer.
+
+      Re-enter it and try again.
+|----------E91.F1F
+I/O format error
+      The programmer received an invalid character in the address field.
+
+      Check your connections and data source and try again.
+|----------E91.1000
+I/O format error
+      Several possible causes: 
+              Invalid charter in field.
+              Invalid fuse number.
+              Invalid pin number for device.
+              Test cycles greater than 99.
+
+      Refer to your programmer manual for more details.
+|----------E92.F1F
+I/O format error
+      The address check was in error (Tektronix Hexadecimal format).
+
+      Check your connections and data source and try again.
+|----------E93.F1F
+I/O format error
+      The number of input records did not equal the record count (in
+      MOS Technology format).
+
+      Check your connections and data source and try again.
+|----------E94.F1F
+I/O format error
+      The record type was in error (Intel Intellec 8/MDS format).
+
+      Check your connections and data source and try again.
+|----------E95.800
+Illegal Split or Shuffle
+      An attempt was made to perform 2 consecutive splits not preceeded
+      by a shuffle or 2 consecutive shuffles not preceeded by a split.
+|----------E96.D00
+Illegal center address
+      The center address specified for the split or shuffle operation
+      is in error.  The center address must be a power of 2 between 0
+      the RAM midpoint.  Default is the RAM midpoint.
+
+      Re-specify the address and try again.
+|----------E97.D00
+Block move error
+      The addresses specified for the block move operation would cause
+      data to be moved from or to a non-existent RAM address.
+|----------E98.D18
+Block size too large
+      The Block size specified for the device related operation is
+      larger than the device.
+
+      Re-specify the Block size and try again.
+|----------EA1.412
+No silicon ID found
+      The programmer could not find a silicon identifier mark
+      in the device.
+|----------EA2.412
+Invalid ID found
+      The silicon Identifier in the device does not match with the
+      device type selected.
+
+      Replace the device or change the device type.
+|----------EA6.010
+Misregistered device
+      The device is inserted incorrectly in the programmer socket.
+
+      Re-insert the device and try again.
+|----------EA7.010
+Set/Block size error
+      The combination of set size and block size you have selected
+      requires more RAM than is available in your programmer.
+|----------EA8.010
+Bad Family/Piout code
+      An incorrect device type or family/pinout code was entered.
+
+      Check your device type and programming electronics to be sure
+      they are compatible and try again.
+|----------EA9.010
+Device in wrong socket
+      A device is placed in a socket on the programmer which would
+      cause the result of the current operation to be ambiguous.
+
+      Remove the device from the socket and try again.
+|----------EB0.006
+Byte erase error
+      The selected EEPROM does not have a byte erase mode and thus
+      the whole device must be erased at once.
+
+      Check your Block size and try again.
+|----------EB1.006
+Chip erase error
+      The selected EEPROM cannot be erased in a single operation
+      (chip erased).
+|----------EB3.002
+Wrong pinout cartridge
+      Wrong pinout cartridge installed for Family/Pinout code entered.
+|----------EB4.002
+Odd RAM limit
+      X16 only.  RAM has to be on an even boundary.
+|----------EB5.002
+No block size
+      X16 only.  Block size must be set for devices which sizes are greater
+      than 512K.
+|----------EB7.002
+No pinout cartridge
+      Tried to do an operation with no pinout cartridge installed.
+|----------E100.FFFF
+Contact with the programmer is broken
+      PROMlink is no longer in communication with the programmer.
+      Possible reasons for this are:
+
+      1)  The cable connecting the programmer to the computer has pulled
+          loose.
+
+      2)  The programmer is no longer turned on or the programmer is no
+          longer in computer remote control mode.
+
+      3)  The baud rate are set differently on the programmer and in the
+          configuration file.  The default baud rate is 9600.   
+
+      4)  The programmer is not connected to the port specified in the
+          configuration file.  The default port is COM1.  
+
+|----------E101.FFFF
+Cannot open user file
+      The requested file could not be opened by PROMlink.  Possible
+      reasons are:
+
+      1)  The file name was mis-typed; try the operation again with
+          the correct file name.
+
+      2)  The file requested was not on the specified disk.  Put the
+          correct disk in the drive or specify the correct drive.
+
+      3)  The disk was not in the drive or the drive door was not closed.
+          Put the disk in the drive and try the operation again.
+|----------E102.FFFF
+Unable to rename file
+      The specified file can not be renamed by PROMlink. Possible reasons are:
+
+      1)  The file to be renamed is not found.
+
+      2)  The new file name already exists.
+
+      3)  The new file name is not specified.
+
+      4)  The drive is empty.  Put the disk in the drive and try the operation
+          again.
+|----------E103.FFFF
+Cannot write to file
+      PROMlink cannot continue to write to the specified file.  Possible
+      reasons for this are:
+
+      1)  The disk has no free space left.  A different disk must be
+          used or some files must be erased from this one to leave
+          enough room for the new information.
+
+      2)  The disk is write protected.  A different disk must be used
+          or the write-protect tab removed from this one.
+
+      3)  The drive is empty.  Put the disk in the drive and try the
+          operation again.
+|----------E104.FFFF
+PROMlink I/O buffer overflow.
+      The programmer ignored the software handshake.
+
+      Try the operation again.
+|----------E105.FFFF
+-
+Cannot write configuration file to the current directory.
+Possible reasons are:
+
+     1)  No disk in the drive.  Put the disk in the drive and try the
+         operation again.
+
+     2)  The disk being write protected or full.
+|----------E106.FFFF
+Illegal baud rate specified in configuration file.
+-
+|----------E107.FFFF
+Illegal parity specifier in configuration file.
+-
+|----------E108.FFFF
+Illegal number of data bits specified in configuration file.
+-
+|----------E109.FFFF
+Illegal number of stop bits specified in configuration file.
+-
+|----------E110.FFFF
+Unrecognizable device manufacturer name in configuration file.
+-
+|----------E111.FFFF
+Unrecognizable device type specified in configuration file.
+-
+|----------E112.FFFF
+Unrecognized I/O format number specified in configuration file.
+-
+|----------E113.FFFF
+Unrecognized programmer/Pak type specified in configuration file.
+-
+|----------E114.FFFF
+Illegal configuration file.
+-
+|----------E115.FFFF
+Illegal computer type.
+-
+|----------E116.FFFF
+Illegal bit-mode flag.
+-
+|----------E117.FFFF
+Unrecognized Device Test flag.
+-
+|----------E118.FFFF
+Unrecognized color flag.
+-
+|----------E119.FFFF
+Illegal set size.
+-
+|----------E120.FFFF
+Default configuration file 'init.cfn' does not exist.
+-
+|----------E121.FFFF
+Unknown command has been sent to the programmer
+      The programmer does not understand the CRC command sent by PROMlink.
+      Possible reason are: 
+ 
+      1)  You are trying to use the Begin Handler Programming function 
+          while your Programmer/Pak does not have the Handler option.
+
+      2)  You attempted to set Setsize or Bit Mode and your Programmer/Pak
+          is neither a Model 121 nor a GangPak.
+
+      3)  The Programmer/Pak you are using is not the same as what
+          you have specified.
+
+      4)  If you got this error while PROMlink was executing User Functions,
+          this means that your User Function file contains a CRC command
+          unknown to the Programmer/Pak.  Check your User Function file
+          carefully.
+|----------E122.FFFF
+Unable to change drive
+      PROMlink can not change the default drive to the requested drive.
+      Possible reasons are:
+
+      1) The specified drive is empty.  Put the disk in the drive and try
+         the operation again.
+
+      2) Invalid drive specifier
+|----------E123.FFFF
+Unable to display directory
+      The requested directory can not be displayed. Possible reasons are:
+
+      1)  No such directory.
+
+      2)  Specified file not found.
+
+      3)  No disk in the drive.  Put the disk in the drive and try the
+          operation again.
+|----------E124.FFFF
+Unable to change directory
+      PROMlink can not change the current directory to the requested
+      directory.  Possible reasons are:
+
+      1)  No such directory.
+
+      2)  No disk in the drive.  Put the disk in the drive and try the
+          operation again.
+|----------E125.FFFF
+Illegal user function file
+      Your user function file has a bad format.  Possible reasons are:
+
+      1)  The first 2 charters of your file are not a backslash followed
+          by a double quote (\"), which should mark the beginning of the
+	  first menu item name.
+
+      2)  There is a double quote (") in the file which is not preceded by
+          a backslash (\) to mark the beginning of a menu item name, nor is
+          it the closing mark of a \%M User Function command.
+
+      3)  There is a backslash (\) in the file which is not followed by a
+          percent character (%) in defining a User Function command.
+          All User Function command definitions must begin with backslash
+          percent (\%).
+|----------E126.FFFF
+User function file too big
+     Not enough memory to load the specified user function file.
+|----------E127.FFFF
+Too many menu items in user function file
+     A user function file cannot have more than 10 menu items.
+|----------E128.FFFF
+Error on menu item line
+     Illegal menu item in User Function file.  Possible reasons are:
+
+     1)  It has more than 24 characters.
+
+     2)  It does not start with a backslash followed by a double quote (\").
+
+     3)  It does not end with a double quote (").
+
+     4)  It contains a linefeed or a TAB.
+|----------E129.FFFF
+Unexpected end of user function file
+     Your User Function ended after sending a CRC command to the programmer
+     without issuing a User Function command to define the action to be
+     taken afterwards.  
+|----------E130.FFFF
+Unknown User Function command
+     There are a total of seven User Function commands:
+        \%E
+        \%>
+        \%*
+        \%P
+        \%D
+        \%R
+        \%M
+     A User Function command which is not one of the commands listed above
+     is found in your User Function file.
+ 
+     For detailed information on User Function commands, refer to your
+     PROMlink manual.
+|----------E131.FFFF
+Illegal binning signal
+     Values of binning signals can only be in the range of 1-5.
+|----------E132.FFFF
+Illegal port number
+-
+|----------E133.FFFF
+Sumcheck error during binary file create
+     As binary data was received from the programmer during a 'Create file
+     from RAM' operation, a sumcheck test indicated a data transmission error.
+
+     Check all connections and try the operation again.
+|----------E134.FFFF
+Sumcheck error during binary file create
+     As binary data was received from the programmer during a 'Create file
+     from RAM' operation, a data header format test indicated a data
+     transmission error.
+
+     Check all connections and try again.
+|----------E135.FFFF
+Sumcheck error during binary file create
+     As binary data was received from the programmer during a 'Create file
+     from RAM' operation, a data trailer format test indicated a data
+     transmission error.
+
+     Check all connections and try the operation again.
+|----------E136.FFFF
+Binary format cannot be used with current Parity and Data Bits
+     Binary format cannot be used for two possible reasons:
+
+     1)  Parity is set to odd or even.
+
+     2)  Number of Data Bits is set to 7.
+
+     If you want to use Binary format in 'Load RAM from file' or
+     'Create file from RAM', change Parity to 'no parity' and set
+     the number of data bits to 8.
+|----------E137.FFFF
+Unable to delete file(s)
+     PROMlink cannot delete specified file(s).  Possible reasons are:
+
+     1)  File(s) not found.
+
+     2)  File(s) have been marked read-only.
+|----------E138.FFFF
+Undefined User Function
+     The User Function you selected from the User Function menu is an
+     empty function.
+
+     Check your User Function file.
+|---------E139.FFFF
+Empty file
+     The size of the specified file is zero.
+|---------E140.FFFF
+Checksum failure
+     Checksum failure during data transmission.
+
+     Check all connections and try the operation again.
+

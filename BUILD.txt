@@ -1,0 +1,10 @@
+Ported/Patched by Mickey White Lawless
+
+Windows 32-bit build (PL.EXE):
+  i686-w64-mingw32-windres pl.rc -O coff -o pl_res.o
+  i686-w64-mingw32-gcc -O2 -mwindows -s -static -o PL.EXE plw.c pl_res.o
+
+Windows 64-bit build: same with x86_64-w64-mingw32-*.
+Linux test build (scripted, no GUI): gcc -O2 -D_GNU_SOURCE -DPLW_TEST -o plw_test plw.c
+
+plimg.h = the original, unmodified PL.EXE (74,486 bytes) as a C array.

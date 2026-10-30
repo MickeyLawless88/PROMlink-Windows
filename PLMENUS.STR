@@ -1,0 +1,1367 @@
+~ PLMENUS.STR   31 May 1985
+~
+~ Message strings are organized into categories: header messages, label 
+~ messages, etc.  The start of a message category in this file is defined by 
+~ a '$', a number of dashes, four significant characters, optional 
+~ characters, and a newline.  Categories may appear in any order, but a 
+~ given category may appear only once. 
+~
+~ Each message within a category has a number associated with it.  Numbers 
+~ start with zero for the first message and run consecutively.  Messages are 
+~ terminated by a '%' character.
+~
+~ The '\' character causes the display to be cleared.
+~
+~ Lines beginning with '~' are comments here and have no effect.
+~
+~ Non-printing characters (i.e. form feeds) in this file are ignored.
+$-------------------------------------HEADER
+
+
+
+
+
+
+                                PROMlink
+                  Programmer/Computer Communications Link
+                              Version 2.01
+
+
+                    Copyright Data I/O Corp. 1984, 1985
+
+
+
+
+
+
+
+%
+~----------1
+Program device%
+~----------2:
+Verify device%
+~----------3
+Load RAM from device%
+~----------4
+Load RAM from file%
+~----------5
+Create file from RAM%
+~----------6
+Error logging%
+~----------7
+File functions%
+~----------8
+Edit functions%
+~----------9
+Configuration functions%
+~----------10
+User functions%
+~----------11
+MAIN MENU%
+~----------12
+Begin programming%
+~----------13
+Begin verifying %
+~----------14
+Begin loading%
+~----------15
+Set operation boundaries%
+~----------16
+Select device type%
+~----------17
+
+MANUFACTURERS:
+
+%
+~----------18
+ DEVICES:
+%
+~----------19
+Fill RAM%
+~----------20
+Select Pak type%
+~----------21
+Select blank/illegal bit test%
+~----------22
+Select I/O format%
+~----------23
+Enter file name to be loaded%
+~----------24
+Enter file name to be created%
+~----------25
+Clear totals%
+~----------26
+Save and clear totals%
+~----------27
+Load configuration%
+~----------28
+Select programmer type%
+~----------29
+Configure port%
+~----------30
+Load user function%
+~----------31
+Enter title%
+~----------32
+Logic terminal mode E1%
+~----------33
+Save configuration%
+~----------34
+Port%
+~----------35
+Baud Rate%
+~----------36
+Parity/Data Bits/Stop bits %
+~----------37
+Select drive%
+~----------38
+Change directory%
+~----------39
+Compact directory%
+~----------40
+Complete directory%
+~----------41
+Delete file%
+~----------42
+Rename file%
+~----------43
+Display file%
+~----------44
+Set default data file%
+~----------45
+Edit/View RAM%
+~----------46
+Split RAM%
+~----------47
+Shuffle RAM%
+~----------48
+Illegal bit test%
+~----------49
+Blank check%
+~----------50
+Load RAM from current data file%
+~----------51
+System 19%
+~----------52
+Series 22%
+~----------53
+Model 29%
+~----------54
+Model 60%
+~----------55
+Model 120/121%
+~----------56
+GangPak%
+~----------57
+LogicPak%
+~----------58
+MOSPak%
+~----------59
+UniPak%
+~----------60
+Gang Module%
+~----------61
+Begin RAM Address%
+~----------62
+I/O Block Size%
+~----------63
+I/O Offset%
+~----------64
+Device Block Size%
+~----------65
+Begin Device Address%
+~----------66
+Set Size%
+~----------67
+Bit Mode%
+~----------68
+Set all boundaries to defaults%
+~----------69
+Set up handler binning%
+~----------70
+Begin handler programming%
+~----------71
+None%
+$-------------------------------------HELP
+PROMlink cannot detect a programmer connected to this computer.
+Possible reasons are:
+
+1)  Incorrect serial ports or cable.  Double-check systems with multiple
+    ports and use the cable provided.
+
+2)  Programmer must be switched on and in Computer Remote Control mode.
+    This must be selected from the programmer's front panel.
+
+3)  Incompatible serial port parameters.  The default for PROMlink is 9600
+    baud, 8 bits, no parity. 
+
+%
+~----------1:
+Select the function you want by typing the number in ().  For help on
+individual menu items, select the function, then type the F3 key.
+
+At any prompt, the F1 key brings you back to the main menu, the F2 key
+brings you back to the previous menu and the F3 key brings up the 
+corresponding help message screen.
+
+%
+~----------2
+PROGRAM DEVICE can program the device in the programmer socket or the
+device in the handler socket with the data stored in the programmer RAM.
+
+When the programmer programs a device, it actually performs three operations:
+1)  An Illegal Bit Test or a Blank Check or no device test according to the
+    Device Test displayed in the System Status block.
+
+2)  Programs the device.
+
+3)  Verifies that the data in the device matches the data in RAM.
+
+Before performing handler programming, be sure to set up the handler binning
+signals.  Otherwise default values will be used.
+%
+~----------3
+LOAD RAM FROM FILE sends a file through the serial cable to the programmer.
+
+The programmer receives the data using the current I/O format and stores it
+in its RAM.  Before performing this operation, be sure that the I/O format
+and the device type displayed in the system status block are the ones that
+you want to use. 
+
+Load RAM From Current Data File loads RAM with data in the file specified in
+the Data File field of the System Status block.  Before initiating this
+operation, be sure that the current Data File is the one that you want to use.
+%
+~----------4
+LOAD RAM FROM DEVICE loads programmer RAM with the data in the device 
+inserted in the programmer socket.
+
+Before performing Begin Loading, be sure that the Device Type displayed 
+in the System Status block is correct.
+%
+~----------5
+CREATE FILE FROM RAM reads programmer RAM into a file on disk.
+
+The format of the file created will be the current I/O format.  Before
+performing the operation, be sure the current I/O format is the one desired.
+
+The amount of data stored in the file depends on the I/O Block Size and the
+current device size.  A different I/O Block Size can be specified with the
+Set Operation Boundaries function.
+%
+~----------6
+SELECT BLANK CHECK/ILLEGAL BIT TEST allows you to select the device test
+that will be automatically performed before a device is programmed.  The
+Blank Check, Illegal Bit Test or no test may be selected.
+
+If the selected test fails, the devices will not be programmed and an
+error message will be displayed.
+%
+~----------7
+VERIFY DEVICE compares the data stored in a device with the data in the
+programmer RAM.
+
+When the test is complete, the result will be displayed.  This test does
+not affect programmer RAM.
+
+Before performing this operation, check that the current Device Type is
+correct.  Also be sure the programmer's RAM contains the data you wish 
+to verify.
+%
+~----------8
+FILL RAM fills the programmer RAM with a specified two-digit hexadecimal
+number.
+
+You can fill a portion of the RAM by setting the RAM boundaries.
+     Begin RAM address specifies the first address of the fill.
+     I/O Block Size specifies the number of bytes to be filled or 
+     the entire RAM if set to zero.
+
+The FILL RAM command takes almost a full minute to fill 16K of RAM with 
+non zero data.
+%
+~----------9
+EDIT/VIEW RAM prompts for a starting RAM address.  Enter this address 
+in hexadecimal and hit RETURN.  (If only the RETURN key is entered, the 
+starting address will be set to zero.)  A data block of 256 bytes starting
+at the specified address will be displayed and put you in the Edit Mode.  
+You can use the command keys as shown at the bottom of the data block for
+editing programmer RAM on a byte-by-byte basis.
+
+If you exit Edit Mode by pressing F2, you can return to Edit Mode with the
+previous starting address unchanged by pressing RETURN only.
+%
+~----------10
+LOAD CONFIGURATION displays the current directory and prompts for a
+configuration filename to be loaded.
+
+By typing the name of a previously defined configuration file, you load a new
+configuration.
+
+Input format: [d:][path]filename[.ext]
+%
+~----------11
+ERROR LOGGING displays, saves, and clears the programming session error 
+counts which are:
+     Number of parts correctly programmed
+     Number of bad device / continuity errors
+     Number of illegal bit / non-blank errors
+     Number of programming errors
+     Number of data verify errors
+     Number of functional verify errors
+These numbers start at zero when PROMlink is started, and are updated 
+when a device is programmed.  They may be cleared to zero only by 
+selecting "Clear Totals" or by exiting PROMlink.
+
+"Save Totals" appends the error counts to a file called STATS.DOC in 
+the default directory.  This file is explained in the PROMlink manual.
+%
+~----------12
+SELECT DEVICE TYPE tells the programmer what device you plan to use.
+
+The programmer must know what device you are using in order to correctly 
+read or program it.  Your device may be selected from the Select Device 
+Type menus or by specifying its Data I/O family/pinout code (found in 
+your Data I/O programmer manuals).
+%
+~----------13
+SELECT I/O FORMAT tells the programmer what format your data will be 
+in for data transfers between files and programmer RAM.
+
+JEDEC format is not an option on the Select I/O Format menu since the 
+I/O format will be set to JEDEC automatically if you select the Model 60
+programmer or the LogicPak from the Select Programmer Type menu or the 
+Select Pak Type menu.
+ 
+PROMlink performs data transfers by simply copying the data, so the data
+format of your files must match that selected at the programmer.  For 
+more information on the formats available, consult your programmer manual. 
+%
+~----------14
+SELECT PROGRAMMER TYPE tells PROMlink what programmer configuration you have.
+
+The Select Programmer Type menu has a list of the Data I/O programmers
+supported by PROMlink.  Once a programmer type is selected, PROMlink will
+try to investigate the RAM size of your programmer.  Be sure to have the
+programmer you are going to select ready to communicate with PROMlink so 
+that the programmer size displayed is correct. 
+
+If the System 19 or the Model 29 is selected, a second menu will allow 
+you to select the Pak type.
+
+If you select the Model 60, the I/O format will be changed to JEDEC 
+automatically.  If you begin using any other programmer after using a logic
+programmer, PROMlink will default to the Motorola Exormax format.
+
+Error messages may be incorrect if the wrong programmer type is selected.  
+
+Note: The Model 60 and the Model 120 do not allow PROMlink to display RAM
+size.
+%
+~----------15
+SET OPERATIONS BOUNDARIES allows you to set the values of the following
+parameters:
+
+Begin RAM, I/O Block Size, I/O Offset, Device Block Size, Begin Device,
+Bit Mode, Set Size, or to set all these parameters to their defaults.
+%
+~----------16
+BEGIN RAM ADDRESS changes the starting RAM address used by the programmer.
+Begin RAM acts like an offset for programmer RAM operations.
+
+This operation affects all subsequent operations which use programmer RAM
+(except Edit/View RAM).
+
+The Begin RAM address is entered in hexadecimal or may be changed to its
+default value of 0 by pressing the RETURN key. It remains in effect
+until changed again or until PROMlink is exited.    
+%
+~----------17
+I/O BLOCK SIZE defines how many bytes are transferred from programmer
+RAM when Create File From RAM is performed.
+
+If the I/O Block Size is zero (default), the number of bytes transferred 
+will be equal to the number of bytes in the current device type.
+
+I/O Block Size is entered in hexadecimal or may be changed to its default
+value of 0 by pressing the RETURN key.  It remains in effect until it is
+changed or until PROMlink is exited.  
+%
+~----------18
+I/O OFFSET defines the offset applied to the addresses contained in
+data transfer formats.
+
+All data transfers between files and programmer RAM contain addresses as 
+part of their format.  When I/O Offset is set to its default value of
+FFFFFF hexadecimal, data transfers are as follows:
+
+     Transfer To Programmer - the first format address received is assigned
+     to the programmer's Begin RAM address.  All other format addresses are
+     assigned to programmer RAM relative to this address.
+
+     Transfer To File - the programmer assigns the data at its Begin RAM
+     address to format address 0 and sends format addresses relative to this
+     address.
+
+I/O Offset is entered in hexadecimal or may be changed to its default value 
+of FFFFFF by pressing the RETURN key. (Note: the System 19 does not have a
+default value for I/O Offset, PROMlink sets it to 0 when RETURN is pressed.)
+
+Changing I/O Offset changes the address in the format corresponding to the
+programmer's Begin RAM address.  I/O Offset is entered in hexadecimal and
+remains in effect until changed again or until PROMlink is exited.
+%
+~----------19
+DEVICE BLOCK SIZE is used to set the number of bytes in the device
+that will be affected by all subsequent device operations.
+
+The Device Block Size of 0 (default) specifies that all of the device is 
+to be used.  Transferring data to or from a portion of a device may be 
+done by changing Device Block Size and Begin Device Address.
+
+Device Block Size is entered in hexadecimal and may be changed to its 
+default value of 0 by pressing the RETURN key.  It remains in effect 
+until changed again or until PROMlink is exited.
+%
+~----------20
+BEGIN DEVICE ADDRESS is used to set the device address that will
+correspond to the Begin RAM Address for all subsequent device operations.
+
+Begin Device Address is entered in hexadecimal and may be changed to its
+default value of 0 by pressing the RETURN key.  It remains in effect until
+changed again or until PROMlink is exited.
+
+If the value is changed, the Device Block Size must also be changed to
+specify the desired smaller portion of the device.  For example, if you
+wanted to load or program only the upper half of a 2732 device (4K), you
+would set Device Block Size to hexadecimal 800 (2K)  and Begin Device
+Address to hexadecimal 800. 
+%
+~----------21
+SET SIZE is available only when you are using a Model 121 or a GangPak.
+
+The Set Size function allows you to define the number of devices to be
+programmed with different patterns at one time.
+
+Model 121 accepts any set size value in the range from 1 to 20.
+System 19 or Model 29 with a GangPak accept any set size value in the range
+from 1 to 8.
+
+The Set Size may be changed back to its default value of 1 by pressing the
+RETURN key.
+%
+~----------22
+BIT MODE is available only when you are using a Model 121 or a GangPak.
+
+Bit Mode allows data organized as 16 or more bit words to be programmed into
+8-bit data devices.
+
+Model 121:              8 or 16 bit mode values only.
+System 19 with GangPak: multiples of 8 up to 64 bit mode values.
+Model 29 with GangPak:  multiples of 8 up to 64 bit mode values.
+
+The Bit Mode may be changed back to its default value of 8 by pressing the
+RETURN key
+%
+~----------23
+SELECT DRIVE allows you to switch to any drive you want simply by entering
+a one-letter drive specifier.
+
+A floppy drive must be loaded with a floppy disk before it can be selected
+as the default drive.
+%
+~----------24
+CHANGE DIRECTORY allows you to change to any directory within the same drive.
+
+Enter the directory path to get to the directory you want to be in.  Refer to
+you DOS manual for the format of a directory path.
+%
+~-----------25
+COMPACT DIRECTORY lists either all the directory entries, or only those for
+specified files, in a wide display format.  Total disk free space is shown at
+the end of the directory list.
+
+Input format: [d:][path]filename[.ext]
+%
+~----------26
+COMPLETE DIRECTORY lists either all the directory entries, or only those for 
+specified files.  Filesize, date and time of creation of the files are shown
+in addition to the filenames.  Total disk free space is shown at the end of
+the directory list.
+
+Input format: [d:][path]filename[.ext]
+%
+~----------27
+DELETE FILE displays the current directory and prompts for filename to be
+deleted, and then deletes it.
+
+Input format: filename[.ext]
+%
+~----------28
+RENAME FILE displays the current directory and prompts for the original name
+and the new name of the file to be renamed.  The name of the file is changed
+to the new name. 
+
+Input format: [d:]filename[.ext] filename[.ext]
+%
+~----------29
+DISPLAY FILE displays the current directory, prompts for the filename to
+be displayed, and then displays it.
+
+Press SPACE to view the specified file again.
+
+Input format: [d:][path]filename[.ext]
+%
+~----------30
+SET DEFAULT DATA FILE displays the current directory and prompts for a file
+name which will be shown as the current data file on the System Status block
+for easy reference whenever needed.
+
+Input format: [d:][path]filename[.ext]
+%
+~----------31
+PORT selection allows you to change the serial port connected to the
+programmer.
+
+COM1 and COM2 refer to the serial ports for the IBM PC.  The TI has up to
+four COM ports.  Consult your computer operation manual and PROMlink 
+manual for more information.
+%
+~----------32
+BAUD RATE selection allows you to set the baud rate.
+
+PROMlink offers three baud rate settings as shown in the Baud Rate menu.
+The default baud rate of 9600 baud (9600 bits/sec) is the maximum efficiency
+level for data transmission.  Refer to your programmer manual for further
+information.
+%
+~----------33
+PARITY/DATA BITS/STOP BITS 
+
+This function, referred to as "protocol", defines the method of serial data
+transmission.
+
+The options are:
+     Parity can be: e for even, o for odd, n for no parity.
+     Data Bits can be: 7 or 8.
+     Stop Bits can be; 1 or 2.
+
+Refer to your programmer manual and your PROMlink manual for more information.
+%
+~----------34
+ENTER TITLE lets you define the title displayed on the first line of the
+System Status block.  The title can not have more than 72 characters.
+%
+~-----------35
+SAVE CONFIGURATION displays the current directory and prompts for the filename
+in which to store all of the current configuration parameters.
+
+If the filename you enter already exists, you may overwrite the old file or
+enter a different filename. 
+%
+~-----------36
+SELECT PAK TYPE allows to select the Pak type that you want to use with your
+System 19 or your Model 29 programmer.  If no choice is made, the Unipak is
+used as the default.
+
+If you select the LogicPak, the I/O format will be changed to JEDEC
+automatically.  If you select any Pak other than the LogicPak and the I/O
+format is JEDEC,  Motorola Exormax format becomes the current I/O format.
+
+PROMlink will operate if the wrong pak type is chosen, however, error messages
+displayed may be incorrect or misleading.  Make sure that the Pak type is the
+one desired at the start of each session, when equipment is changed, or when a
+new configuration file is loaded.
+
+%
+~-----------37
+CONFIGURE PORT lets you define the programmer to PC connections which are:
+Port, Baud Rate and Protocol.
+
+Protocol defines the method of serial data transmission.  It includes three
+factors: Parity, Number of Data Bits and Number of Stop Bits.
+
+Refer to your programmer operation manual for complete setup procedures.
+%
+~-----------38
+SET ALL BOUNDARIES TO DEFAULTS sets all operations boundaries to their
+default values.
+
+Begin RAM:         set to 0
+I/O block size:    set to 0
+I/O offset:        set to 0 for the System 19 programmer
+                   set to FFFFFF hex for all other programmers
+Device Block size: set to 0
+Begin device:      set to 0
+%
+~-----------39
+FILE FUNCTIONS menu is a list of the file manipulation and associated 
+directory functions that PROMlink provides. 
+
+For help on individual menu items, select the function and hit the key F3.
+%
+~-----------40
+Unrecognized error number received.
+
+Be sure you have specified the correct programmer and Pak type (See "Select
+programmer type" on the Configuration Functions menu), then consult your
+programmer or Pak manual. 
+%
+~-----------41
+The device type you have selected has been verified by the programmer as
+valid.
+
+The Data I/O family/pinout code and size in hexadecimal bytes of the selected
+device are displayed for your convenience.
+%
+~-----------42
+SPLIT RAM separates a block of 16-bit data in programmer RAM into two blocks
+of 8-bit data.
+
+Starting with 16-bit data, all 8-bit bytes at even addresses go to the block
+of RAM the addresses of which are lower than the specified center point and
+the 8-bit bytes at odd addresses go to the block of RAM the addresses of
+which are equal to and higher than the specified center point.
+
+The center point is entered in hexadecimal and can be set to its default 
+value which is the RAM midpoint, by pressing RETURN.
+%
+~-----------43
+SHUFFLE RAM is essentially the opposite of Split RAM.  It allows you to
+interweave two blocks of 8-bit data back into one block of 16-bit data.
+
+Shuffle RAM takes the data at addresses greater than or equal to the center
+point and combines it with data below the center point such that the block of
+16-bit data will now have data which was before the center point at even
+addresses and data which was after the center point at odd addresses.
+
+The center point is entered in hexadecimal.  It can be set to its default
+value which is the RAM midpoint, by pressing RETURN.
+%
+~-----------44
+EDIT FUNCTIONS describes PROMlink edit functions.  The edit RAM functions
+allow you to modify the RAM in the programmer.
+
+RAM may be filled with an 8-bit hexadecimal pattern or may be edited using
+the full screen editor.
+
+Split and Shuffle RAM are two commands used for rearranging 8-bit RAM data
+for 16-bit programming.  This option is not available for all programmers.  
+
+You can also access Set Operation Boundaries from the Edit Functions menu,
+if you are not using a LogicPak.
+%
+~-----------45
+At this point, contact between PROMlink and the programmer has already been
+established.
+
+You can proceed to the Main Menu by pressing the function key F1.  You may
+access up to 10 different functions from the Main Menu.
+
+You can also exit PROMlink by entering the letter 'x'. 
+%
+~-----------46
+LOGIC TERMINAL MODE E1 lets you send commands directly to the programmer.
+When you choose this option, PROMlink selects the programmer's Logic
+Terminal (E1) mode, which sets up the programmer to communicate with a
+remote terminal.  PROMlink then emulates a simple ASCII terminal until
+you exit the logic terminal mode by pressing ESCAPE or one of the function keys.
+
+The commands you can use and the responses you will receive depend 
+on the particular programmer you are using.  See your programmer's 
+documentation on using a remote terminal.  
+Logic terminal mode is useful if
+
+     (1)  you are already comfortable operating your programmer by remote
+          terminal control, and you prefer to use this method rather than
+          using PROMlink's menu structure, or
+
+     (2)  you want to use a capability of your programmer that is not
+          accessible from PROMlink's menus.
+%
+~-----------47
+EDIT MODE is entered when you enter a starting address or hit the RETURN
+key from the EDIT/VIEW RAM screen.
+
+In the edit mode, a block of 256 bytes of RAM data is displayed on the
+screen.  A list of edit mode command keys is displayed at the bottom of the
+edit mode screen.
+
+Note: Once you leave the edit mode screen by hitting F1 or F2 or go to another
+block by hitting HOME, END, PGUP or PGDN, the current data block will be
+written into the programmer RAM.  If you don't want to have the changes you
+have made recorded in programmer RAM, you can press the F4 key to restore the
+current data block.
+
+A screen of help messages is displayed by hitting F3 in the edit mode
+screen.  Leaving the editor by hitting the key F3 does not cause the changes
+you have made (if any) to be written to programmer RAM.  If you now hit the
+key F2, you return edit mode with the changes already made (if any) still
+shown on the screen.
+%
+~-----------48
+CONFIGURATION FUNCTIONS let you set all parameters you will need to define a
+configuration file and save it for loading at another time, set all data entry
+parameters, and configure the PC serial port.
+%
+~-----------49
+LOAD USER FUNCTION displays the current directory, and prompts for a
+predefined User Function filename.  
+
+The message 'Operation successfully completed' is displayed if no error
+has been detected during the loading process.  Otherwise a brief error
+message is displayed.  If an error occurs, you can hit the key F3 to
+get more descriptive error messages.
+
+Refer to your PROMlink manual for detailed information on User Function files.
+%
+~-----------50
+USER FUNCTIONS is a menu defined by the user.  To define User Functions,
+you must first create a User Function file in the format specified in your
+PROMlink manual, then load it in using the Load User Function function on
+the Configuration Function menu.
+
+If User Functions is selected before any user function has been loaded, the
+message 'No User Function file loaded' is displayed instead of a menu. 
+%
+~-----------51
+SET UP HANDLER BINNING displays a menu of six error conditions.  You can enter
+a number from 1 - 5 (depending on your handler) to select the binning signals
+to be given to the handler during Handler Programming for each of the error
+conditions:
+     Parts correctly programmed
+     Bad device/Continuity errors
+     Illegal bit/non-blank errors
+     Programming errors
+     Data verify errors
+     Functional verify errors 
+%
+~-----------52
+BEGIN HANDLER PROGRAMMING prompts for the number of parts to be correctly
+programmed. Once a number (less than or equal to 999) is entered, the
+programming session starts immediately.
+
+The Begin Handler Programming operation is similar to that of Begin
+Programming except that the handler automatically seats the devices,
+programs them and deposits them into the appropriate bin according to the
+selection made in the Handler Set up menu or specified in the current
+configuration file.
+
+Note: you should select this function before the first device is placed in
+the handler socket.  Otherwise you will have to press the START key on your
+programmer to let PROMlink know that the handler is ready for programming
+devices.  Once the programming session has started, it continues until
+     1)  the specified number of parts have been correctly programmed.
+     2)  an unrecoverable error has occurred.
+However, you can always stop a lengthy process by hitting CTRL Z.
+
+If you have specified a number bigger than the actual number of devices in
+the input tube of your handler, you can abort the handler programming by
+pressing CTRL Z.
+%
+~---------53
+You can access several related functions from the current menu.
+For help on individual menu items, select the function, then type the F3 key.
+
+%
+~----------54
+BEGIN PROGRAMMING is initiated immediately by selecting (1) from the Program
+Device screen.
+
+The programming operation can be aborted any time by pressing CTRL Z and can
+be repeated by pressing RETURN.
+%
+~----------55
+BEGIN VERIFYING is initiated immediately by selecting (1) from the Verify
+Device screen.  It checks device data against programmer RAM data.  Be sure
+that the current device type matches with of the device in the socket and
+the correct data is in the programmer RAM.
+
+The verifying operation can be aborted any time by pressing CTRL Z.  It can
+be repeated by pressing RETURN.
+%
+~----------56
+BEGIN LOADING is initiated immediately by selecting (1) from the Load RAM From
+Device screen.  It loads the programmer RAM with the data contained in the
+device in the programmer socket.  Be sure that the current device type matches
+that of the device in the socket.
+
+The RAM load can be aborted at any time by pressing CTRL Z and can be
+repeated by pressing RETURN.
+%
+~-----------57
+ENTER FILE NAME TO BE CREATED displays the current directory and prompts for
+the name of the file to be created from the data contained in programmer RAM.
+
+If the file name you enter already exists, you may overwrite the old file or
+enter a different file name.
+
+Input format: [d:][path]filename[.ext]
+%
+~-----------58
+ENTER FILE NAME TO BE LOADED displays the current directory and prompts for
+the name of the file which contains data to be loaded into the programmer RAM.
+
+Input format: [d:][path]filename[.ext]
+%
+~-----------59
+LOAD RAM FROM CURRENT DATA FILE is initiated immediately by selecting (4) from
+the Load RAM From File screen.
+
+The data contained in the current Data File is used to load the programmer
+RAM.  
+
+Input format: [d:][path]filename[.ext]
+%
+~-----------60
+SAVE AND CLEAR TOTALS saves the error counts during the programming sessions
+to a file named STATS.DOC in the current directory.  If STATS.DOC already
+exists, the current error counts are appended to that file.  The error counts
+are then cleared to zero.
+
+The error counts include:
+     Number of parts correctly programmed
+     Number of bad device / continuity errors
+     Number of illegal bit / non-blank errors
+     Number of programming errors
+     Number of data verify errors
+     Number of functional test errors
+
+The errors counts are accumulated from the beginning of the PROMlink session,
+or since the time the error counts were last cleared using the Clear Totals
+function.
+
+In addition to the error counts, the configuration title, the date and time,
+the default data file name, and the device type are also written to STATS.DOC.
+%
+~-----------61
+CLEAR TOTALS clears all error counts during the programming session to zero.
+
+The error counts are:
+     Number of parts correctly programmed
+     Number of bad device / continuity errors
+     Number of illegal bit / non-blank errors
+     Number of programming errors
+     Number of data verify errors
+     Number of functional test errors
+
+For more information on error counts, refer to your PROMlink manual.
+%
+$-------------------------------------STATUS
+
+     Cannot contact programmer.  
+
+     Awaiting programmer response.
+%
+~----------1
+Contact with programmer established.
+%
+~----------2
+
+Operation aborted
+%
+~----------3
+
+File not found
+
+
+%
+~----------4
+READing/WRITing RAM, please wait ... %
+~----------5
+Programming device, please wait ...         
+%
+~----------6
+READing RAM, please wait ... %
+~----------7
+
+Operation successfully completed.
+%
+~----------8
+Input value not accepted %
+~----------9
+Loading RAM from device, please wait ...
+%
+~----------10
+Current port: %
+~----------11
+
+
+Writing 'init.cfn' to the current directory ...
+%
+~----------12
+Saving totals into file STATS.DOC, please wait ... %
+~----------13
+Device verifies with RAM.
+%
+~----------14
+
+Device does NOT verify with RAM.
+%
+~----------15
+Verifying device with RAM, please wait ...
+%
+~----------16
+Setting Programmer/Pak type, please wait ... %
+~----------17
+Loading RAM from file: %
+~----------18
+Creating file from RAM: %
+~----------19
+Address out of range %
+~----------20
+Device type was accepted by the programmer
+    Device size: %
+~----------21
+Loading configuration file: %
+~----------22
+
+Splitting RAM, please wait ...
+%
+~----------23
+
+Shuffling RAM, please wait ...
+%
+~----------24
+Beginning of memory %
+~----------25
+
+Filling RAM, please wait ...
+%
+~----------26
+
+Loading configurations ...
+%
+~----------27
+Device type was NOT accepted by the programmer.
+     family/pinout code rejected: %
+~----------28
+
+An error has occurred.
+Note Pak indicators, press SPACE and wait for error message.
+
+%
+~----------29
+Not used - - -
+%
+~----------30
+ will be performed before programming a device
+%
+~----------31
+No device test%
+~-----------32
+End of memory %
+~-----------33
+ has been changed to: %
+~-----------34
+Current I/O format: %
+~-----------35
+Unknown I/O format
+%
+~-----------36
+Current baud rate: %
+~-----------37
+Current parity: %
+~-----------38
+Current Data Bits: %
+~-----------39
+Current stop bits: %
+~-----------40
+Current configuration file: %
+~-----------41
+Saving configuration file: %
+~-----------42
+Loading User Function file: %
+~-----------43
+Default values have been used for configurations
+%
+~-----------44
+
+Initializing port ...
+%
+~-----------45
+Current title: %
+$-------------------------------------FORMAT
+A-B10F%
+~----------1
+A-B10F start code%
+~----------2
+A-BHLF%
+~----------3
+A-BHLF start code%
+~----------4
+A-BNPF%
+~----------5
+A-BNPF start code%
+~----------6
+A-Hex Apostrophe%
+~----------7
+A-Hex comma%
+~----------8
+A-Hex Comma SOH%
+~----------9
+A-Hex Percent%
+~----------10
+A-Hex Percent SOH%
+~----------11
+A-Hex SMS%
+~----------12
+A-Hex Space%
+~----------13
+A-Hex Space SOH%
+~----------14
+A-Oct Apostrophe%
+~----------15
+A-Oct Percent%
+~----------16
+A-Oct percent SOH%
+~----------17
+A-Oct SMS%
+~----------18
+A-Oct Space%
+~----------19
+A-Oct Space SOH%
+~----------20
+Binary%
+~----------21
+Fairchild Fairbug%
+~----------22
+Int Intellec 8/MDS%
+~----------23
+Int MCS-86 Hex Obj%
+~----------24
+MOS Technology%
+~----------25
+Motorola Exorciser%
+~----------26
+Motorola Exormax%
+~----------27
+RCA Cosmac%
+~----------28
+Signetics Abs Obj%
+~----------29
+Spectrum%
+~----------30
+Spec. start code%
+~----------31
+Tektronix Hex%
+~----------32
+TI SDSMAC%
+~----------33
+JEDEC%
+$-------------------------------------CHOICE
+Press key in () for desired function:%
+~------------1
+Press SPACE to program again %
+~----------2
+ (1=COM1, 2=COM2): %
+~----------3
+
+
+File already exists.
+
+Press SPACE to overwrite existing file with new file
+Press RETURN to enter a different file name
+%
+~----------4
+Press SPACE to view remaining part numbers
+%
+~----------5
+Press SPACE to view remaining Directory %
+~----------6
+Press RETURN to set Begin RAM Address to its default value%
+~----------7
+Press RETURN to set I/O Block Size to its default value%
+~----------8
+Press RETURN to set I/O Offset to its default value%
+~----------9
+Press RETURN to set Device Block Size to its default value%
+~----------10
+Press RETURN to set Begin Device Address to its default value%
+~----------11
+Press RETURN to set Set Size to its default value%
+~----------12
+Press RETURN to set Bit Mode to its default value%
+~----------13
+(F1) Main menu              (F3) Help              (x)  Exit PROMlink       %
+~----------14
+Enter desired number:%
+~----------15
+
+
+Enter the number of your part number and RETURN: %
+~----------16
+(F1) Main menu            (F2) Previous menu            (x)  Exit PROMlink   %
+~----------17
+
+Enter family/pinout code of your device and RETURN: %
+~----------18
+
+
+Exiting PROMlink. Are you sure y/n? %
+~----------19
+
+Enter desired number and RETURN:%
+~----------20
+ (1=COM1, 2=COM2, 3=COM3, 4=COM4): %
+~----------21
+The possible baud rates are:
+%
+~----------22
+
+Press SPACE to enter Data I/O family/pinout code
+%
+~----------23
+
+Press CTRL-Z to abort               
+%
+~----------24
+Enter the hexadecimal fill byte and RETURN: %
+~----------25
+COM%
+~----------26
+(F1) Main menu   (F2) Previous menu   (F3) Help   (F4) Restore current block%
+~----------27
+ (e=even, o=odd, n=no parity): %
+~----------28
+
+Enter new Begin RAM Address and RETURN: %
+~----------29
+
+Enter new I/O Block size and RETURN: %
+~----------30
+
+Enter new I/O Offset and RETURN: %
+~----------31
+
+Enter new Device Block Size and RETURN: %
+~----------32
+
+Enter new Begin Device Address and RETURN: %
+~----------33
+Enter new Set Size and RETURN: %
+~----------34
+Enter new Bit Mode and RETURN: %
+~----------35
+
+
+Enter manufacturer number and RETURN: %
+~----------36
+Press SPACE to display directory again %
+~---------37
+Enter starting address (in hexadecimal) and RETURN: %
+~---------38
+Press RETURN to go to edit mode %
+~----------39
+ARROWs  ... cursor control      HOME ... first block     END ... last block
+PGUP    ... previous block      PGDN ... next block
+TAB     ... switches cursor between HEXADECIMAL and ASCII field %
+~----------40
+ (7 or 8): %
+~-----------41
+ (1 or 2): %
+~-----------42
+RETURN ... display current directory %
+~-----------43
+Enter data file and RETURN: %
+~-----------44
+Press SPACE to continue to display file%
+~-----------45
+Press RETURN to load current data file %
+~-----------46
+(F1) Main menu              (F2) Previous menu              (F3) Help        %
+~-----------47
+(F3) Help                                            (x)  Exit PROMlink      %
+~-----------48
+Enter path and/or filename and RETURN:
+%
+~-----------49
+Enter drive specifier: %
+~-----------50
+Enter filename and RETURN: %
+~-----------51
+Enter directory path and RETURN:
+%
+~-----------52
+Enter User Function file and RETURN: %
+~-----------53
+Enter original-filename new-filename and RETURN:
+%
+~-----------54
+Press SPACE to load RAM from device again %
+~-----------55
+Press SPACE to program device again %
+~-----------56
+Press SPACE to display file again%
+~-----------57
+Press SPACE to view part numbers again
+%
+~-----------58
+Enter the hexadecimal center point and RETURN: %
+~-----------59
+The center point must be a power of 2 between 0 and the RAM midpoint.
+
+Press RETURN to use RAM midpoint as the default center point%
+~-----------60
+Press SPACE to verify device again %
+$-------------------------------------PTYPE
+Series 22%
+~----------1
+Model 60%
+~----------2
+Model 120/121%
+~----------3
+System 19 with GangPak%
+~----------4
+System 19 with LogicPak%
+~----------5
+System 19 with MOSPak%
+~----------6
+System 19 with UniPak%
+~----------7
+System 19 with Gang Module%
+~----------8
+Model 29 with GangPak%
+~----------9
+Model 29 with LogicPak%
+~----------10
+Model 29 with MOSPak%
+~----------11
+Model 29 with UniPak%
+~----------12
+Model 29 with Gang Module%
+$-------------------------------------LABEL
+Programmer Size: %
+~----------1
+Device Type: %
+~----------2
+Data File%
+~----------3
+I/O Format%
+~----------4
+Your Programmer/Pak does not have Edit Functions %
+~----------5
+Your Programmer/Pak uses JEDEC format only %
+~----------6
+Your Programmer/Pak does not have Set Boundaries functions %
+~----------7
+Your Programmer/Pak does not support Logic Terminal mode functions %
+~----------8
+Parts correctly programmed:%
+~----------9
+Programming errors:%
+~----------10
+Bad device / continuity:%
+~----------11
+Data verify errors:%
+~----------12
+Illegal bit / non blank:%
+~----------13
+Functional verify:%
+~----------14
+Enter number of parts to be programmed: %
+~----------15
+Sizing programmer RAM, please wait ... %
+~----------16
+     Current sumcheck: %
+~----------17
+Cursor at location: %
+~----------18
+
+Cannot write 'init.cfn' to the current directory.  Quit PROMlink y/n? %
+~----------19
+Enter bin category (1-5) for each condition
+%
+~----------20
+ ADDRESS                   HEXADECIMAL                          ASCII 
+%
+~----------21
+ ...
+%
+~----------22
+Specified configuration file loaded
+%
+~----------23
+Current data file: %
+~----------24
+Current default drive is %
+~----------25
+File(s) deleted. %
+~----------26
+Cannot open User Function file
+%
+~----------27
+Error #%
+~----------28
+Data I/O F/P: %
+~----------29
+Current directory: %
+~----------30
+Invalid drive was specified. %
+~----------31
+Current User Function file: %
+~----------32
+Invalid number of parameters
+%
+~----------33
+Programmer: %
+~----------34
+Data Bits%
+~----------35
+Current value: %
+~----------36
+
+No User Function file loaded
+
+%
+~----------37
+baud %
+~----------38
+User Function File: %
+~----------39
+Directory of %
+~----------40
+Set Size and Bit Mode of your Programmer/Pak is not changeable %
+~----------41
+Specified directory does not exits
+Current directory is used as default directory
+%
+~----------42
+PROMlink can not support Error Logging functions for your Programmer/Pak %
+~----------43
+ File(s) %
+~----------44
+ bytes free
+%
+~---------45
+Specified User Function file not loaded
+%
+~---------46
+even %
+~---------47
+odd %
+~---------48
+no parity%
+~---------49
+Stop Bits%
+~---------50
+Parity%
+~---------51
+Directory: %
+~---------52
+Title: %
+~---------53
+Device Test: %
+~---------54
+ and RETURN:
+%
+~---------55
+
+
+WARNING: Device size greater than programmer RAM size.
+         I/O block size must be set.
+
+%
+~---------56
+<DIR>%
+
